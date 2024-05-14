@@ -3,7 +3,7 @@ conf t
 iox
 !
 interface VirtualPortgroup 0
-ip address 192.168.35.1
+ip address 192.168.35.1 255.255.255.0
 ip nat inside
 no mop enabled
 no mop sysid
@@ -13,7 +13,7 @@ int gi 2
 ip nat outside
 exit
 !
-ip nat outside source list NAT_ACL interface GigabitEthernet2 overload
+ip nat inside source list NAT_ACL interface GigabitEthernet 2 overload
 ip access-list standard NAT_ACL
 permit 192.168.35.0 0.0.0.255
 
